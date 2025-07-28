@@ -1,0 +1,41 @@
+Here are the steps for installing Ansible Automation in a better format:
+
+**Step 1:** Register with Red Hat and obtain a 60-day free trial for the latest version of Ansible Automation Platform (AAP). Download the tar.gz file.
+
+**Step 2:** Create a Red Hat instance in AWS with the following specifications:
+- Instance Type: m4.large
+- Storage: 50GB
+- Inbound Port Configurations: Allow inbound connections on ports 80 and 443 for TCP.
+
+**Step 3:** Open your command prompt (cmd) and navigate to the directory where the downloaded tar.gz file exists using the "cd" command, e.g., `cd Downloads`.
+
+**Step 4:** Copy the .tar.gz file to your Red Hat instance, and then gunzip and untar the file. 
+You can use commands like `scp` or any other method you prefer for copying.
+
+**Step 5:** Make changes in your Ansible inventory file:
+```
+[automationcontroller]
+hostname ansible_connection=local
+```
+Add the required "admin password" and "pg password" in the inventory file.
+```
+**Step 6:** Run the setup script:
+```
+./setup.sh
+```
+
+**Step 7:** Access Ansible Tower using a web browser by navigating to `https://<ip>` 
+where `<ip>` is the IP address of your Red Hat instance. Use the credentials you set in the inventory file to log in.
+
+**Step 8:** When opening Ansible Tower using the IP address, you will encounter a subscription management page. 
+Provide your Red Hat Portal username and password.
+
+**Step 9:** After providing your Red Hat credentials, the subscriptions will populate. 
+Select the appropriate subscription and proceed by clicking "Next" as needed.
+
+quay.io/rayank/ansible-modules:77   (this is the exection Environment - we use) 
+
+**Step 10:** You're done! Ansible Automation Platform is now installed and configured on your Red Hat instance, and you can begin using it for automation tasks.
+
+Please note that the actual commands and paths may vary depending on your specific setup and environment. 
+Ensure you have appropriate permissions and access rights for the installation and configuration steps.
